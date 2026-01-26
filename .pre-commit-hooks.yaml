@@ -1,18 +1,18 @@
 ---
-- id: scan-sast
+- id: bearer-sast
   name: Scan SAST
   description: Detects various security risks and vulnerabilities in the code
-  entry: src/main.sh "scan-sast"
+  entry: src/main.sh "bearer-sast"
   language: script
   pass_filenames: false
   verbose: true
 
-- id: scan-secrets
+- id: bearer-secrets
   name: Scan Secrets
   description: |
     Checks for common secret patterns such as keys, tokens, and passwords using
     the popular Gitleaks library
-  entry: src/main.sh "scan-secrets"
+  entry: src/main.sh "bearer-secrets"
   language: script
   pass_filenames: false
   verbose: true
