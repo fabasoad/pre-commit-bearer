@@ -24,8 +24,8 @@ main() {
   _import_all
   _validate_prerequisites
 
-  cmd_scan_sast="scan-sast"
-  cmd_scan_secrets="scan-secrets" # pragma: allowlist secret
+  cmd_bearer_sast="bearer-sast"
+  cmd_bearer_secrets="bearer-secrets" # pragma: allowlist secret
 
   cmd_actual="${1}"
   shift
@@ -49,14 +49,14 @@ main() {
   set -u
 
   case "${cmd_actual}" in
-    "${cmd_scan_sast}")
+    "${cmd_bearer_sast}")
       scan_sast "${all_args_map["bearer-args"]}"
       ;;
-    "${cmd_scan_secrets}")
+    "${cmd_bearer_secrets}")
       scan_secrets "${all_args_map["bearer-args"]}"
       ;;
     *)
-      validate_enum "${cmd_actual}" "${cmd_scan_sast}"
+      validate_enum "${cmd_actual}" "${cmd_bearer_sast},${cmd_bearer_secrets}"
       ;;
   esac
 }

@@ -13,8 +13,8 @@
   - [How it works?](#how-it-works)
   - [Prerequisites](#prerequisites)
   - [Hooks](#hooks)
-    - [scan-sast](#scan-sast)
-    - [scan-secrets](#scan-secrets)
+    - [bearer-sast](#bearer-sast)
+    - [bearer-secrets](#bearer-secrets)
   - [Customization](#customization)
     - [Description](#description)
     - [Parameters](#parameters)
@@ -49,7 +49,7 @@ hook:
 > `<rev>` in the examples below, is the latest revision tag from [fabasoad/pre-commit-bearer](https://github.com/fabasoad/pre-commit-bearer/releases)
 > repository.
 
-### scan-sast
+### bearer-sast
 
 This hook runs [scan . --scanner=sast](https://docs.bearer.com/explanations/scanners/#sast-scanner)
 command.
@@ -59,10 +59,10 @@ repos:
   - repo: https://github.com/fabasoad/pre-commit-bearer
     rev: <rev>
     hooks:
-      - id: scan-sast
+      - id: bearer-sast
 ```
 
-### scan-secrets
+### bearer-secrets
 
 This hook runs [scan . --scanner=secrets](https://docs.bearer.com/explanations/scanners/#secrets-scanner)
 command.
@@ -72,7 +72,7 @@ repos:
   - repo: https://github.com/fabasoad/pre-commit-bearer
     rev: <rev>
     hooks:
-      - id: scan-secrets
+      - id: bearer-secrets
 ```
 
 ## Customization
@@ -201,7 +201,7 @@ repos:
   - repo: https://github.com/fabasoad/pre-commit-bearer
     rev: <rev>
     hooks:
-      - id: scan-sast
+      - id: bearer-sast
         args:
           - --hook-args=--log-level debug
           - --bearer-args=--fail-on-severity low
@@ -215,7 +215,7 @@ repos:
   - repo: https://github.com/fabasoad/pre-commit-bearer
     rev: <rev>
     hooks:
-      - id: scan-sast
+      - id: bearer-sast
         args:
           - --hook-args=--log-level debug
           - --bearer-args=--fail-on-severity low --config-file bearer.yaml
@@ -228,7 +228,7 @@ repos:
   - repo: https://github.com/fabasoad/pre-commit-bearer
     rev: <rev>
     hooks:
-      - id: scan-sast
+      - id: bearer-sast
         args:
           - --hook-args=--log-level=error
           - --bearer-args=--quiet --log-level error
