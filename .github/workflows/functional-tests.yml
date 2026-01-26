@@ -16,6 +16,9 @@ on: # yamllint disable-line rule:truthy
     - cron: "0 0 * * 5"
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 defaults:
   run:
     shell: sh
