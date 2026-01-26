@@ -20,9 +20,9 @@ install() {
     else
       fabasoad_log "debug" "Bearer is not found. Downloading ${PRE_COMMIT_BEARER_BEARER_VERSION} version:"
       if [ "${PRE_COMMIT_BEARER_BEARER_VERSION}" = "latest" ]; then
-        curl -sfL "https://raw.githubusercontent.com/${_UPSTREAM_FULL_REPO_NAME}/main/contrib/install.sh" | sh -s -- -b "${CONFIG_CACHE_APP_BIN_DIR}"
+        curl -sfL "https://raw.githubusercontent.com/${_UPSTREAM_FULL_REPO_NAME}/main/contrib/install.sh" | sh -s -- -b "${CONFIG_CACHE_APP_BIN_DIR}" >&2
       else
-        curl -sfL "https://raw.githubusercontent.com/${_UPSTREAM_FULL_REPO_NAME}/main/contrib/install.sh" | sh -s -- -b "${CONFIG_CACHE_APP_BIN_DIR}" "v${PRE_COMMIT_BEARER_BEARER_VERSION}"
+        curl -sfL "https://raw.githubusercontent.com/${_UPSTREAM_FULL_REPO_NAME}/main/contrib/install.sh" | sh -s -- -b "${CONFIG_CACHE_APP_BIN_DIR}" "v${PRE_COMMIT_BEARER_BEARER_VERSION}" >&2
       fi
       fabasoad_log "debug" "Downloading completed"
     fi
